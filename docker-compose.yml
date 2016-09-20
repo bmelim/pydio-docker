@@ -1,0 +1,20 @@
+version: '2'
+services:
+  pydio:
+    build: .
+    ports:
+      - 443:443
+      - 80:80
+    links:
+      - pydiodb
+    volumes:
+      - "${PWD}/pydio/files:/var/www/pydio-core/data/files/"
+      - "${PWD}/pydio/personal:/var/www/pydio-core/data/personal/"
+
+  pydiodb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: PASSW0RD
+      MYSQL_USER: pydio
+      MYSQL_PASSWORD: PASSW0RD
+      MYSQL_DATABASE: pydio
