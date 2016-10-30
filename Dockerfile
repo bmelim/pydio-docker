@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:jessie
 MAINTAINER cl3m3nt
 ENV PYDIO_VERSION 6.4.2
 
